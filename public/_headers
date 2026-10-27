@@ -1,0 +1,4 @@
+# Optional Netlify/Cloudflare headers. GitHub Pages ignores this file.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer

@@ -1,0 +1,20 @@
+{
+  "name": "stereofix-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Local stereo channel repair for iPhone Safari",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "prebuild": "node script/copy-core.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "0.12.10",
+    "@ffmpeg/core": "0.12.10"
+  },
+  "devDependencies": {
+    "vite": "5.4.11"
+  }
+}

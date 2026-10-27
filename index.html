@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="description" content="StereoFix: розділяй аудіоканали DJI Mic та перетворюй їх на моно прямо на iPhone, без завантаження файлів на сервер." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="StereoFix" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <title>StereoFix | Audio tools for iPhone</title>
+</head>
+<body>
+  <div id="app">
+    <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+    <header class="site-header layout">
+      <a class="wordmark" href="#top" aria-label="StereoFix, початок">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none"><path d="M8 20V16M13 26V10M18 31V5M23 24V12M28 19V17" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></svg>
+        </span>
+        <span>Stereo<span class="accent">Fix</span></span>
+      </a>
+      <span class="header-tag"><span class="dot"></span> PRIVATE AUDIO TOOLS</span>
+    </header>
+    <main id="top" class="layout">
+      <div class="hero">
+        <div class="eyebrow"><span class="tiny-disc"></span> MADE FOR DJI MIC & ALL STEREO AUDIO</div>
+        <h1>Один канал.<br /><em>Чистий звук.</em></h1>
+        <p class="hero-copy">Перетворюй лівий, правий або обидва канали на моно. Без монтажних програм, без серверів, просто в Safari.</p>
+        <div class="privacy-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 20 6v6.2c0 5.2-3.5 8.5-8 10-4.5-1.5-8-4.8-8-10V6l8-3.2Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m8.3 12.3 2.3 2.3 4.8-5.1" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Відео обробляється лише на твоєму пристрої</div>
+      </div>
+      <section class="workbench" aria-labelledby="workbench-title">
+        <div class="panel-header"><div><div class="step-title">01 <span>ІМПОРТ</span></div><h2 id="workbench-title">Твоє відео</h2></div><div class="file-status" id="file-status"><span class="status-pip"></span> Файл не вибрано</div></div>
+        <label class="dropzone" id="dropzone" for="file-input" tabindex="0">
+          <input id="file-input" type="file" accept="video/*,audio/*,.mov,.mp4,.m4v,.m4a,.mp3,.wav" />
+          <span class="drop-art" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><rect x="12" y="20" width="56" height="41" rx="9" stroke="currentColor" stroke-width="1.5"/><path d="m34 31 20 10-20 10V31Z" fill="currentColor" opacity=".8"/><path d="M25 14h30M30 9h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="drop-lead" id="drop-lead">Натисни, щоб вибрати відео</span>
+          <span class="drop-sub" id="drop-sub">З галереї iPhone або з «Файлів» · MOV, MP4, M4A</span>
+          <span class="choose-button">Вибрати файл <span aria-hidden="true">↗</span></span>
+        </label>
+        <div class="selected-file" id="selected-file" hidden>
+          <div class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m10 9 6 3-6 3V9Z" fill="currentColor"/></svg></div>
+          <div class="selected-info"><strong id="selected-name"></strong><small id="selected-info"></small></div>
+          <button type="button" class="change-btn" id="change-file">Замінити</button>
+        </div>
+        <video id="input-preview" controls playsinline preload="metadata" hidden></video>
+      </section>
+      <section class="workbench modes-panel" aria-labelledby="modes-title">
+        <div class="panel-header"><div><div class="step-title">02 <span>АУДІОКАНАЛИ</span></div><h2 id="modes-title">Що робимо зі звуком?</h2></div><span class="small-label">4 РЕЖИМИ</span></div>
+        <div class="channel-hint"><span>L</span><div class="wave-track"><i style="height:24%"></i><i style="height:68%"></i><i style="height:90%"></i><i style="height:34%"></i><i style="height:64%"></i><i style="height:42%"></i><i style="height:100%"></i><i style="height:58%"></i><i style="height:36%"></i><i style="height:76%"></i><i style="height:24%"></i><i style="height:53%"></i><i style="height:81%"></i><i style="height:41%"></i><i style="height:64%"></i><i style="height:20%"></i></div><span>MIC 1</span></div>
+        <div class="channel-hint right"><span>R</span><div class="wave-track"><i style="height:61%"></i><i style="height:36%"></i><i style="height:77%"></i><i style="height:54%"></i><i style="height:95%"></i><i style="height:39%"></i><i style="height:24%"></i><i style="height:60%"></i><i style="height:92%"></i><i style="height:51%"></i><i style="height:73%"></i><i style="height:31%"></i><i style="height:86%"></i><i style="height:38%"></i><i style="height:65%"></i><i style="height:26%"></i></div><span>MIC 2</span></div>
+        <div class="mode-options" role="radiogroup" aria-label="Режим обробки">
+          <label class="mode-option active" data-mode="mix"><input type="radio" name="mode" value="mix" checked /><span class="mode-ico">◎</span><span class="mode-text"><strong>Обидва в моно</strong><small>Мікрофон 1 + мікрофон 2 по центру</small></span><span class="radio-indicator"></span></label>
+          <label class="mode-option" data-mode="left"><input type="radio" name="mode" value="left" /><span class="mode-ico">L</span><span class="mode-text"><strong>Тільки лівий</strong><small>Залишити MIC 1, прибрати MIC 2</small></span><span class="radio-indicator"></span></label>
+          <label class="mode-option" data-mode="right"><input type="radio" name="mode" value="right" /><span class="mode-ico">R</span><span class="mode-text"><strong>Тільки правий</strong><small>Залишити MIC 2, прибрати MIC 1</small></span><span class="radio-indicator"></span></label>
+          <label class="mode-option" data-mode="split"><input type="radio" name="mode" value="split" /><span class="mode-ico split-icon">Ⅱ</span><span class="mode-text"><strong>Розділити два мікрофони</strong><small>Два окремі M4A-файли для CapCut</small></span><span class="radio-indicator"></span></label>
+        </div>
+        <div class="mode-note" id="mode-note">Обидва сигнали буде змішано з однаковою гучністю. Результат: один моноаудіоканал у відео.</div>
+      </section>
+      <section class="action-zone">
+        <div class="export-heading"><div class="step-title">03 <span>ЕКСПОРТ</span></div><h2>Готово до монтажу.</h2></div>
+        <button type="button" id="process-button" class="process-button" disabled><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Обробити відео</span></button>
+        <button type="button" id="cancel-button" class="cancel-button" hidden>Зупинити обробку</button>
+        <div class="progress-panel" id="progress-panel" hidden aria-live="polite">
+          <div class="progress-info"><span id="progress-label">Підготовка…</span><span id="progress-percent">0%</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+          <small id="progress-help">Під час обробки не закривай Safari.</small>
+        </div>
+        <div class="error-panel" id="error-panel" hidden role="alert"></div>
+        <div class="results" id="results" hidden aria-live="polite"><div class="results-title"><span>✓</span> Файли готові</div><p>Відкрий файл або натисни «Поділитися», щоб зберегти через меню iPhone.</p><div id="result-list" class="result-list"></div></div>
+        <div class="export-footnote"><span>✦ ЗОБРАЖЕННЯ БЕЗ ПЕРЕКОДУВАННЯ</span><span>✦ ЗВУК AAC</span><span>✦ БЕЗ ЗАВАНТАЖЕННЯ НА СЕРВЕР</span></div>
+      </section>
+      <section class="how-it-works"><div class="how-title">ПРО ПРОГРАМУ</div><h3>Твої файли залишаються твоїми.</h3><p>Обробка виконується безпосередньо на iPhone за допомогою FFmpeg WebAssembly. Програма не надсилає відео на сторонні сервери. Для першого запуску потрібно завантажити компонент обробки (приблизно 30 МБ). Великі 4K-ролики можуть перевищити ліміти памʼяті Safari: спочатку протестуй на короткому відео.</p></section>
+    </main>
+    <footer class="footer layout"><span>StereoFix · v1.0</span><span>BUILT FOR THE SOUND OF TWO VOICES</span></footer>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
